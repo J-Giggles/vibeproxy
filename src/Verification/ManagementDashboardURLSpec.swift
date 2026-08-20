@@ -4,7 +4,7 @@ import Foundation
 struct ManagementDashboardURLSpec {
     static func main() {
         let actual = ManagementDashboardURL.make(configuredPort: 8317)?.absoluteString
-        let expected = "http://localhost:8317/management.html"
+        let expected = "http://127.0.0.1:8317/management.html"
 
         guard actual == expected else {
             fputs("configured backend port should determine the dashboard URL: expected \(expected), got \(actual ?? "nil")\n", stderr)

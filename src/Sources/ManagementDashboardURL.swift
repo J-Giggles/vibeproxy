@@ -5,6 +5,6 @@ enum ManagementDashboardURL {
         guard (1...65_535).contains(configuredPort) else {
             return nil
         }
-        return URL(string: "http://localhost:\(configuredPort)/management.html")
+        return URL(string: "http://127.0.0.1:\(configuredPort)/management.html")
     }
 }
