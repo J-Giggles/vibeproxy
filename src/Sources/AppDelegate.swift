@@ -295,7 +295,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, UNUserNoti
     }
 
     @objc func openDashboard() {
-        if let url = URL(string: "http://localhost:8318/management.html") {
+        if let url = serverManager.managementDashboardURL() {
             NSWorkspace.shared.open(url)
         }
     }

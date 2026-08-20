@@ -811,6 +811,16 @@ class ServerManager: ObservableObject {
         }
     }
 
+    func managementDashboardURL() -> URL? {
+        let configPath = getConfigPath()
+        guard !configPath.isEmpty,
+              case .success(let root) = loadYAMLDictionary(atPath: configPath),
+              let configuredPort = root["port"] as? Int else {
+            return nil
+        }
+        return ManagementDashboardURL.make(configuredPort: configuredPort)
+    }
+
     private func resolveConfigPath() -> Result<String, ConfigResolutionFailure> {
         resolveConfigPath(enabledProviderStates: enabledProviders)
     }
